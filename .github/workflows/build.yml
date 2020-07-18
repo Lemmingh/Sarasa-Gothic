@@ -40,11 +40,6 @@ jobs:
         shell: bash
         run: pip install fonttools
 
-      - name: "Install Premake 5 (by Homebrew)"
-        shell: bash
-        run: brew install --devel premake
-      # The `--devel` option confused me; cannot figure out its meaning: https://github.com/Homebrew/brew/pull/5086
-
       - name: "Install Premake 5 (directly)"
         shell: bash
         run: |
