@@ -6,6 +6,10 @@ on:
       name:
         description: "Artifact name"
         required: true
+      type:
+        description: "Build type (ttf/ttc)"
+        required: true
+        default: "ttf"
 
 jobs:
   build:
@@ -14,12 +18,18 @@ jobs:
     steps:
       - name: "Log trigger info"
         shell: bash
+        env:
+          ARTIFACT_NAME: ${{ github.event.inputs.name }}
+          BUILD_TYPE: ${{ github.event.inputs.type }}
         run: |
-          echo "Actor:  $GITHUB_ACTOR"
-          echo "Event:  $GITHUB_EVENT_NAME"
+          echo "Actor: $GITHUB_ACTOR"
+          echo "Event: $GITHUB_EVENT_NAME"
           echo
           echo "Commit: $GITHUB_SHA"
           echo "Branch: $GITHUB_REF"
+          echo
+          echo "Artifact: $ARTIFACT_NAME"
+          echo "Build:    $BUILD_TYPE"
 
       - name: "Set environment variables `MY_BIN_PATH`, `PATH`"
         shell: pwsh
@@ -82,18 +92,23 @@ jobs:
 
       - name: "Build fonts"
         shell: bash
-        run: npm run build ttc
+        env:
+          BUILD_TYPE: ${{ github.event.inputs.type }}
+        run: npm run build $BUILD_TYPE
 
       - name: "Install tree (for debug)"
+        if: ${{ always() }}
         shell: bash
         run: sudo apt --yes install tree
 
       - name: "Log final workspace directory structure (for debug)"
+        if: ${{ always() }}
         shell: bash
         run: |
           tree -L 3
 
       - name: "Log environment variables (for debug)"
+        if: ${{ always() }}
         shell: pwsh
         run: |
           dir Env:
@@ -103,5 +118,12 @@ jobs:
       - name: "Upload artifacts"
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ github.event.inputs.name }}
-          path: "out/ttc"
+          name: ${{ github.event.inputs.name }}-${{ github.event.inputs.type }}
+          path: "out/${{ github.event.inputs.type }}"
+
+      - name: "Upload npm log (for debug)"
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: "npm-debug-log"
+          path: "~/.npm/_logs"
