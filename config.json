@@ -82,25 +82,10 @@
 			"uprightStyleMap": "bold"
 		}
 	},
-	"subfamilyOrder": ["cl", "sc", "tc", "hc", "j", "k"],
+	"subfamilyOrder": ["sc"],
 	"subfamilies": {
-		"cl": {
-			"name": "CL"
-		},
 		"sc": {
 			"name": "SC"
-		},
-		"tc": {
-			"name": "TC"
-		},
-		"hc": {
-			"name": "HC"
-		},
-		"j": {
-			"name": "J"
-		},
-		"k": {
-			"name": "K"
 		}
 	},
 	"os2encodings": {
