@@ -17,7 +17,8 @@
 		}
 	},
 	"styleOrder": [
-		"regular"
+		"regular",
+		"bold"
 	],
 	"latinGroups": {
 		"Inter": {
@@ -39,6 +40,9 @@
 	"styles": {
 		"regular": {
 			"name": "Regular"
+		},
+		"bold": {
+			"name": "Bold"
 		}
 	},
 	"subfamilyOrder": ["sc"],
