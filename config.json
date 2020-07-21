@@ -1,18 +1,18 @@
 {
 	"buildOptions":{},
-	"familyOrder": ["mono"],
+	"familyOrder": ["mono-consolas"],
 	"families": {
-		"mono": {
+		"mono-consolas": {
 			"isMono": true,
 			"isType": true,
-			"latinGroup": "iosevka",
+			"latinGroup": "consolas",
 			"naming": {
-				"en_US": "Sarasa Mono",
-				"zh_CN": "等距更纱黑体",
-				"zh_TW": "等距更紗黑體",
-				"zh_HK": "等距更紗黑體",
-				"ja_JP": "更紗等幅ゴシック",
-				"ko_KR": "사라사 고정 폭고딕"
+				"en_US": "Sarasa Mono Consolas",
+				"zh_CN": "等距更纱黑体 Consolas",
+				"zh_TW": "等距更紗黑體 Consolas",
+				"zh_HK": "等距更紗黑體 Consolas",
+				"ja_JP": "更紗等幅ゴシック Consolas",
+				"ko_KR": "사라사 고정 폭고딕 Consolas"
 			}
 		}
 	},
