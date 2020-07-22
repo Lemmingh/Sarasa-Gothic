@@ -39,9 +39,6 @@
 	"styles": {
 		"regular": {
 			"name": "Regular"
-		},
-		"bold": {
-			"name": "Bold"
 		}
 	},
 	"subfamilyOrder": ["sc"],
